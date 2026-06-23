@@ -21,7 +21,7 @@ if submit_button and uploaded_file:
     with st.spinner("Анализирую фото..."):
         try:
             files = {"file": uploaded_file}
-            response = requests.post(API_URL, files=files, timeout=None)
+            response = requests.post(f"{API_URL}/api/analyze", files=files, timeout=None)
 
             if response.status_code == 200:
                 data = response.json()
