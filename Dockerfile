@@ -1,13 +1,14 @@
+FROM rust:1.80-slim AS builder
+
 FROM python:3.11-slim
+
+COPY --from=builder /usr/local/cargo /usr/local/cargo
+ENV PATH="/usr/local/cargo/bin:${PATH}"
 
 RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libglib2.0-0 \
-    build-essential \
-    curl \
-    && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
-    && . "$HOME/.cargo/env" \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
