@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://localhost:8000/api/analyze"
+API_URL = "https://cosmetics-analyzer.onrender.com"
 
 st.set_page_config(
     page_title="Анализ состава косметики",
