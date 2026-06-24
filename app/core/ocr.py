@@ -2,6 +2,13 @@ import numpy as np
 import cv2
 import pytesseract
 from app.core.utils import clean_and_merge_ingredients
+import platform
+import os
+
+print("Файл существует?", os.path.exists(r"C:\Users\Vlada\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"))
+
+if platform.system() == "Windows":
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Users\Vlada\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
 
 
 def ocr_image(image_bytes: bytes):
