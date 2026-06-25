@@ -10,13 +10,13 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    env:
+      OPENAI_API_KEY: "sk-dummy-key-for-tests"
+      HF_TOKEN: "hf_dummy_token"
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-
-      env:
-        OPENAI_API_KEY: "sk-dummy-key-for-tests"
-        HF_TOKEN: "hf_dummy_token"
 
     - name: Set up Python 3.11
       uses: actions/setup-python@v5
